@@ -64,6 +64,7 @@
     --ease-out: cubic-bezier(0, 0, 0.2, 1);
     --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
     --animate-pulse: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    --animate-bounce: bounce 1s infinite;
     --blur-md: 12px;
     --default-transition-duration: 150ms;
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -457,6 +458,9 @@
   }
   .transform {
     transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
+  }
+  .animate-bounce {
+    animation: var(--animate-bounce);
   }
   .animate-pulse {
     animation: var(--animate-pulse);
@@ -1336,7 +1340,7 @@
   transform: scale(0.9);
 }
 .client-slider {
-  animation: slide 10s linear infinite;
+  animation: slide 15s linear infinite;
 }
 .client-item {
   display: flex;
@@ -1479,6 +1483,17 @@
 .lang-btn:not(.active):hover {
   background-color: rgba(56, 189, 248, 0.1);
   color: #38bdf8;
+}
+animate-bounce {
+  animation: bounce 2s infinite;
+}
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
 }
 @property --tw-translate-x {
   syntax: "*";

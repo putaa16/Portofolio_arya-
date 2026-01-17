@@ -116,7 +116,7 @@
 }
 
 .client-slider {
-  animation: slide 10s linear infinite;
+  animation: slide 15s linear infinite;
 }
 
 .client-item {
@@ -237,4 +237,16 @@
 .lang-btn:not(.active):hover {
     background-color: rgba(56, 189, 248, 0.1);
     color: #38bdf8;
+}
+
+animate-bounce {
+  animation: bounce 2s infinite;
+}
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
 }
