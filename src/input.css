@@ -1,0 +1,240 @@
+@import "tailwindcss";
+
+.navbar-fixed {
+  @apply fixed z-9999 backdrop-blur-md;
+  box-shadow: inset 0 -1px 0 0 rgba(0, 0, 0, 0.2);
+}
+
+.hamburger-line {
+  @apply w-[30px] h-0.5 my-2 block bg-black dark:bg-white;
+}
+
+.hamburger-active > span:nth-child(1) {
+  @apply rotate-45;
+}
+
+.hamburger-active > span:nth-child(2) {
+  @apply scale-0;
+}
+
+.hamburger-active > span:nth-child(3) {
+  @apply origin-bottom-left -rotate-45;
+}
+
+/* Tambahkan varian dark secara manual */
+@variant dark (&:where(.dark, .dark *)) {
+}
+
+/* styling dark mode */
+.dark body {
+  background-color: #0f172a; 
+  color: white;
+}
+
+.dark header {
+  backdrop-filter: blur(6px);
+}
+
+.dark blog {
+  background-color: #0f172a;
+}
+
+.dark footer {
+  background-color: #0f172a;
+}
+
+#icon-sun-moon::before {
+  content: "☀️";
+  display: block;
+  font-size: 22px;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+/* Saat mode gelap → ikon bulan */
+.dark #icon-sun-moon::before {
+  content: "🌙";
+  font-size: 22px;
+  transform: rotate(180deg) scale(0.9);
+}
+
+/* Love Pop Animation */
+@keyframes love-pop {
+  0% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.4);
+  }
+  60% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.love-animate {
+  animation: love-pop 0.4s ease-in-out;
+}
+
+/* Love burst effect */
+.love-burst {
+  position: absolute;
+  font-size: 14px;
+  animation: burst 0.6s ease-out forwards;
+  pointer-events: none;
+}
+
+@keyframes burst {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--x), var(--y)) scale(1.5);
+  }
+}
+
+.social-btn {
+  @apply w-11 h-11 rounded-full flex items-center justify-center
+         border border-slate-300 text-slate-400
+         hover:border-sky-400 hover:bg-sky-400 hover:text-white
+         transition duration-300;
+}
+
+.social-btn i {
+  @apply w-5 h-5;
+}
+
+.social-btn:hover i {
+  transform: scale(1.15);
+}
+
+.social-btn:active {
+  transform: scale(0.9);
+}
+
+.client-slider {
+  animation: slide 30s linear infinite;
+}
+
+.client-item {
+  @apply flex items-center justify-center min-w-[260px] p-8 rounded-2xl bg-white/5 backdrop-blur-md;
+}
+
+.client-item img {
+  @apply h-16 lg:h-20 grayscale opacity-70 transition duration-500;
+}
+
+.client-item:hover img {
+  @apply grayscale-0 opacity-100 scale-110;
+}
+
+/* Pause saat hover */
+.client-slider:hover {
+  animation-play-state: paused;
+}
+
+/* Animasi */
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Preloader styles */
+#preloader {
+  @apply bg-linear-to-br from-purple-500 via-blue-500 to-pink-500;
+}
+
+#preloader {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    z-index: 9999;
+}
+
+.basketball-loader {
+  width: 60px;
+  height: 60px;
+  background: #ff6b35;
+  border-radius: 50%;
+  position: relative;
+  animation: bounce 0.8s ease-in-out infinite;
+  box-shadow: 0 10px 30px rgba(255, 107, 53, 0.5);
+}
+
+.basketball-loader::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: #1e1e1e;
+  top: 50%;
+  left: 0;
+}
+
+.basketball-loader::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 100%;
+  background: #1e1e1e;
+  left: 50%;
+  top: 0;
+}
+
+.preloader-text {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  animation: fadeInOut 1.5s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(10) scale(1, 1);
+  }
+  50% {
+    transform: translateY(-200px) scale(1.1, 0.9);
+  }
+}
+
+@keyframes fadeInOut {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+/* Language Toggle Button Styles */
+.lang-btn {
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.lang-btn.active {
+    background-color: #38bdf8;
+    color: white;
+}
+
+.lang-btn:not(.active) {
+    background-color: transparent;
+    color: #64748b;
+}
+
+.lang-btn:not(.active):hover {
+    background-color: rgba(56, 189, 248, 0.1);
+    color: #38bdf8;
+}
