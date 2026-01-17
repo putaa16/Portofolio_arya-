@@ -295,7 +295,7 @@ const translations = {
   id: {
     'nav-home': 'Beranda',
     'hero-greeting': 'Halo Semua 👋, saya',
-    'hero-desc': 'Belajar Desain Web itu mudah dan menyenagkan bukan. Bukan!',
+    'hero-desc': 'Belajar Desain Web itu mudah dan menyenangkan bukan. Bukan!',
     'hero-cta': 'Hubungi Saya',
     'about-title': 'Tentang Saya',
     'about-subtitle': 'Mahasiswa yang Penuh Semangat Belajar',
