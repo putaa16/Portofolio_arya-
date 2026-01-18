@@ -331,7 +331,7 @@
 /* Navbar Link Underline Effect */
 .nav-link {
   position: relative;
-  padding-bottom: 4px;
+  padding-bottom: auto;
 }
 
 .nav-link::after {
@@ -349,17 +349,106 @@
 .nav-link:hover::after {
   width: 100%;
 }
+/*Footer 3 Column Box Wow Effect*/
+.box-wow a{
+  position: relative;
+  transition: color 0.3s ease;
+}
 
-/* Pulse Animation for Icons */
-@keyframes pulse-glow {
-  0%, 100% {
-    box-shadow: 0 0 0 0 rgba(56, 189, 248, 0.7);
+footer a::before {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: #38bdf8;
+  transition: width 0.3s ease;
+}
+
+footer a:hover::before {
+  width: 100%;
+}
+
+/* Glassmorphism Card Effect */
+.glass-card {
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dark .glass-card {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-card:hover {
+  transform: translateY(-5px);
+}
+
+.dark .glass-card:hover {
+  box-shadow: 0 20px 40px rgba(56, 189, 248, 0.2);
+}
+
+/* Responsive Typography */
+@media (max-width: 640px) {
+  .hero-image-container img {
+    max-width: 280px;
   }
-  50% {
-    box-shadow: 0 0 0 10px rgba(56, 189, 248, 0);
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
   }
 }
 
-.pulse-icon {
-  animation: pulse-glow 2s infinite;
+@media (min-width: 641px) and (max-width: 768px) {
+  .hero-image-container img {
+    max-width: 350px;
+  }
 }
+
+/* Enhanced Mobile Menu */
+@media (max-width: 1024px) {
+  #nav-menu {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  #nav-menu.hidden {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  
+  #nav-menu:not(.hidden) {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Accessibility Focus Styles */
+*:focus-visible {
+  outline: 2px solid #38bdf8;
+  outline-offset: 2px;
+}
+
+/* Responsive Grid Improvements */
+@media (max-width: 640px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
