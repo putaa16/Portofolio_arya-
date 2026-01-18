@@ -803,6 +803,11 @@
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
     transition-duration: var(--tw-duration, var(--default-transition-duration));
   }
+  .transition-colors {
+    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
   .transition-transform {
     transition-property: transform, translate, scale, rotate;
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
@@ -1484,16 +1489,77 @@
   background-color: rgba(56, 189, 248, 0.1);
   color: #38bdf8;
 }
-animate-bounce {
-  animation: bounce 2s infinite;
+.hero-image-container {
+  position: relative;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
-@keyframes bounce {
+.hero-image-container:hover {
+  transform: translateY(-10px);
+}
+.hero-image-container img {
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: brightness(1);
+}
+.hero-image-container:hover img {
+  filter: brightness(1.05) contrast(1.05);
+  transform: scale(1.05);
+}
+@keyframes float {
   0%, 100% {
-    transform: translateY(0);
+    transform: translateY(0px);
   }
   50% {
-    transform: translateY(-15px);
+    transform: translateY(-7px);
   }
+}
+.hero-image-container img {
+  animation: float 3s ease-in-out infinite;
+}
+.hero-image-container:hover img {
+  animation-play-state: paused;
+}
+@keyframes blob-float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+}
+.hero-image-container svg {
+  animation: blob-float 3s ease-in-out infinite;
+}
+.hero-image-container:hover svg {
+  animation-play-state: paused;
+}
+@keyframes blob-color-shift {
+  0% {
+    fill: #61bafa;
+  }
+  20% {
+    fill: #38bdf8;
+  }
+  40% {
+    fill: #0ea5e9;
+  }
+  60% {
+    fill: #8b5cf6;
+  }
+  80% {
+    fill: #ec4899;
+  }
+  100% {
+    fill: #61bafa;
+  }
+}
+.hero-image-container svg path {
+  animation: blob-color-shift 15s ease-in-out infinite;
+  transition: all 0.3s ease;
+}
+.hero-image-container:hover svg path {
+  fill: #0ea5e9;
+  filter: drop-shadow(0 0 20px rgba(14, 165, 233, 0.6));
+  animation-play-state: paused;
 }
 @property --tw-translate-x {
   syntax: "*";

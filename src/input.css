@@ -98,9 +98,9 @@
 
 .social-btn {
   @apply w-11 h-11 rounded-full flex items-center justify-center
-         border border-slate-300 text-slate-400
-         hover:border-sky-400 hover:bg-sky-400 hover:text-white
-         transition duration-300;
+          border border-slate-300 text-slate-400
+          hover:border-sky-400 hover:bg-sky-400 hover:text-white
+          transition duration-300;
 }
 
 .social-btn i {
@@ -238,3 +238,93 @@
     background-color: rgba(56, 189, 248, 0.1);
     color: #38bdf8;
 }
+
+/* Hero Image Container with Advanced Effects */
+.hero-image-container {
+    position: relative;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hero-image-container:hover {
+    transform: translateY(-10px);
+}
+
+.hero-image-container img {
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: brightness(1);
+}
+
+.hero-image-container:hover img {
+    filter: brightness(1.05) contrast(1.05);
+    transform: scale(1.05);
+}
+
+/* Floating Animation for Hero Image */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+.hero-image-container img {
+  animation: float 3s ease-in-out infinite;
+}
+
+.hero-image-container:hover img {
+  animation-play-state: paused;
+}
+
+/* Animasi Perubahan Warna */
+@keyframes blob-float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+}
+.hero-image-container svg{
+  animation: blob-float 3s ease-in-out infinite;
+}
+.hero-image-container:hover svg {
+  animation-play-state: paused;
+}
+
+@keyframes blob-color-shift {
+  0% {
+    fill: #61bafa; /* Sky Blue */
+  }
+  20% {
+    fill: #38bdf8; /* Lighter Sky */
+  }
+  40% {
+    fill: #0ea5e9; /* Deep Sky */
+  }
+  60% {
+    fill: #8b5cf6; /* Purple */
+  }
+  80% {
+    fill: #ec4899; /* Pink */
+  }
+  100% {
+    fill: #61bafa; /* Kembali ke Sky Blue */
+  }
+}
+
+/* Apply Animations to Blob */
+.hero-image-container svg path {
+  animation: 
+    blob-color-shift 15s ease-in-out infinite;
+  transition: all 0.3s ease;
+}
+
+/* Hover Effect - Pause & Glow */
+.hero-image-container:hover svg path {
+  fill: #0ea5e9;
+  filter: drop-shadow(0 0 20px rgba(14, 165, 233, 0.6));
+  animation-play-state: paused; /* Pause saat hover */
+}
+
